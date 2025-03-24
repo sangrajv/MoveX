@@ -26,8 +26,17 @@ class HomeViewController: UIViewController {
     }
     
     func performLogout() {
+        let firebaseAuth = Auth.auth()
+        
         do {
-            try Auth.auth().signOut()
+            try firebaseAuth.signOut()
+            print("Firebase sign-out successful.")
+            
+            if GIDSignIn.sharedInstance.currentUser != nil {
+                GIDSignIn.sharedInstance.signOut()
+                print("Google sign-out successful.")
+            }
+            
             self.performSegue(withIdentifier: "HomeToWelcome", sender: self)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
