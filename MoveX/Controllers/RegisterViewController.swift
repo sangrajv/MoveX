@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import FirebaseCore
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 class RegisterViewController: UIViewController {
     
