@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
+import FirebaseFirestore
 
 
 @main
@@ -18,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-                
+        let db = Firestore.firestore()
+        
+        //testing the firestore database
+        print(db)
+        
         return true
     }
     

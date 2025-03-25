@@ -11,6 +11,7 @@
 		481B48C02D90385E006A5C01 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 481B48BF2D90385E006A5C01 /* GoogleSignInSwift */; };
 		481B49022D903E40006A5C01 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 481B49012D903E40006A5C01 /* FirebaseAuth */; };
 		481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 481B49032D903EBB006A5C01 /* FirebaseCore */; };
+		48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 48E324722D92BDF9002D4C39 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 				481B49022D903E40006A5C01 /* FirebaseAuth in Frameworks */,
 				481B48C02D90385E006A5C01 /* GoogleSignInSwift in Frameworks */,
 				481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */,
+				48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */,
 				481B48BE2D90385E006A5C01 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				481E869E2D8B186A00E03036 /* MoveX */,
+				48E324712D92BDF9002D4C39 /* Frameworks */,
 				481E869D2D8B186A00E03036 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +83,13 @@
 				481E869C2D8B186A00E03036 /* MoveX.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		48E324712D92BDF9002D4C39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +410,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 481B49002D903CC7006A5C01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		48E324722D92BDF9002D4C39 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 481B49002D903CC7006A5C01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
