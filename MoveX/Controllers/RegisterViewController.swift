@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -38,6 +38,10 @@ class RegisterViewController: UIViewController {
     {
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            return textField.resignFirstResponder()
+        }
         
     }
 

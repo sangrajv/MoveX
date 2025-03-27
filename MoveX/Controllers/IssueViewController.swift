@@ -12,7 +12,7 @@ import GoogleSignIn
 import FirebaseFirestore
 
 
-class IssueViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class IssueViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var issuetv: UITextView!
        @IBOutlet var contacttf: UITextField!
@@ -82,7 +82,10 @@ class IssueViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
        }
                 
             
-            
+    @IBAction func unwidToIssuesVC(sender: UIStoryboardSegue)
+    {
+        
+    }
             
             override func viewDidLoad() {
                 super.viewDidLoad()
@@ -90,6 +93,10 @@ class IssueViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
                 // Do any additional setup after loading the view.
             }
             
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
             
             /*
              // MARK: - Navigation
