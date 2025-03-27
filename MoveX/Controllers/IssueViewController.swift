@@ -62,7 +62,8 @@ class IssueViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
            db.collection("Issues").addDocument(data: [
                "Body": issueBody,
                "ContactMethod": selectedContactMethod,
-               "ContactInfo": contactInfo
+               "ContactInfo": contactInfo,
+               "Status": ""
            ]) { error in
                if let e = error {
                    let alert = UIAlertController(title: "Error in Submission", message: "Please review all field and try again.", preferredStyle: .alert)
