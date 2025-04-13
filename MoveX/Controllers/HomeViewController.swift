@@ -57,15 +57,22 @@ class HomeViewController: UIViewController, UIPopoverPresentationControllerDeleg
         tabBarController?.selectedIndex = 1
     }
     
+    
+    //method by: Yashika Saini
+    // Purpose: Triggered when a workout button is tapped.
+    // It retrieves the selected workout data based on the button's tag
+    // and presents a popover with detailed workout information.
     @IBAction func workoutButtonTapped(_ sender: UIButton) {
             let index = sender.tag
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let selectedWorkout = appDelegate.workoutData[index]
 
-            if let popoverVC = storyboard?.instantiateViewController(withIdentifier: "WorkoutPopoverViewController") as? WorkoutPopoverViewController {
+        // WHY: Instantiate and configure the popover view controller to display workout details.
+        if let popoverVC = storyboard?.instantiateViewController(withIdentifier: "WorkoutPopoverViewController") as? WorkoutPopoverViewController {
                 popoverVC.modalPresentationStyle = .popover
                 popoverVC.preferredContentSize = CGSize(width: 300, height: 400)
                 popoverVC.workoutData = selectedWorkout
+            // WHY: Set up the popover’s anchor point and presentation style.
                 if let popover = popoverVC.popoverPresentationController {
                     popover.sourceView = sender
                     popover.sourceRect = sender.bounds

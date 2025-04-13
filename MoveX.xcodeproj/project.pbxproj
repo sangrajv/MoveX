@@ -13,6 +13,9 @@
 		481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 481B49032D903EBB006A5C01 /* FirebaseCore */; };
 		48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 48E324722D92BDF9002D4C39 /* FirebaseFirestore */; };
 		8516570F2DAB0A6200E69A17 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 8516570E2DAB0A6200E69A17 /* GoogleGenerativeAI */; };
+		85D4CFC62DAC35CF00ABBCCC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D4CFC52DAC35C800ABBCCC /* libsqlite3.0.tbd */; };
+		85D4CFC82DAC35D600ABBCCC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D4CFC72DAC35D600ABBCCC /* WebKit.framework */; };
+		85D4CFD02DAC3D9E00ABBCCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D4CFCF2DAC3D9E00ABBCCC /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		481E869C2D8B186A00E03036 /* MoveX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D4CFC52DAC35C800ABBCCC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		85D4CFC72DAC35D600ABBCCC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		85D4CFCF2DAC3D9E00ABBCCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -60,10 +66,13 @@
 			files = (
 				481B49022D903E40006A5C01 /* FirebaseAuth in Frameworks */,
 				481B48C02D90385E006A5C01 /* GoogleSignInSwift in Frameworks */,
+				85D4CFD02DAC3D9E00ABBCCC /* AVFoundation.framework in Frameworks */,
+				85D4CFC82DAC35D600ABBCCC /* WebKit.framework in Frameworks */,
 				481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */,
 				8516570F2DAB0A6200E69A17 /* GoogleGenerativeAI in Frameworks */,
 				48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */,
 				481B48BE2D90385E006A5C01 /* GoogleSignIn in Frameworks */,
+				85D4CFC62DAC35CF00ABBCCC /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +99,9 @@
 		48E324712D92BDF9002D4C39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85D4CFCF2DAC3D9E00ABBCCC /* AVFoundation.framework */,
+				85D4CFC72DAC35D600ABBCCC /* WebKit.framework */,
+				85D4CFC52DAC35C800ABBCCC /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

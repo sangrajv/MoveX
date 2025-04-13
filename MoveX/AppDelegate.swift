@@ -3,8 +3,8 @@
 //
 //  Created by Yashika Saini on 2025-04-12.
 //
-
-
+//Description: The AppDelegate serves as the central point of control and coordination for the MoveX app.
+//              It handles application lifecycle events,interactions with Firebase, sets up the SQLite                database, and manages workout data retrieval and local notification scheduling for workout reminders.
 
 import UIKit
 import GoogleSignIn
@@ -16,8 +16,10 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    // Database name and path for local storage
     var databaseName = "fitness.db"
     var databasePath = ""
+    // Stores workout data loaded from the local database
     var workoutData: [WorkoutData] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,20 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let db = Firestore.firestore()
         print("Firestore: \(db)")
 
-        // Setup SQLite DB
+        // Setup SQLite DB, fields by: Yashika Saini
         let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDir = documentPaths[0]
         databasePath = documentsDir.appending("/" + databaseName)
 
+        //method calls by: Yashika Saini
         checkAndCreateDatabase()
         readWorkoutData()
         requestNotificationAuthorization()
-        scheduleWorkoutReminder(hour: 22, minute: 08)
+        scheduleWorkoutReminder(hour: 14, minute: 30)
         UNUserNotificationCenter.current().delegate = self
 
         return true
     }
     
+    // Method by: Yashika Saini
+    // Purpose: Requests user authorization for sending notifications
+    // WHY: Notification permission is required to show reminders to users
     func requestNotificationAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
@@ -49,6 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    //Method by: Yashika Saini
+    // Purpose: Schedules a daily reminder notification to prompt users to workout
+    // WHY: Avoids duplicates by removing any previously scheduled notification with the same identifier
     func scheduleWorkoutReminder(hour: Int, minute: Int) {
             let center = UNUserNotificationCenter.current()
 
@@ -77,15 +86,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     
+    //Method by: Yashika Saini
+    // Purpose: Handles display of notifications when app is in the foreground
+    // WHY: Ensures notifications show up even while the app is open
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                     willPresent notification: UNNotification,
                                     withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             completionHandler([.banner, .sound])
-        }
+    }
     
     
     
-
+    //Method by: Yashika Saini
+    // Purpose: Ensures the fitness database is available in the device documents directory
+    // WHY: Copies the bundled database to the device so it can be used at runtime
     func checkAndCreateDatabase() {
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: databasePath) {
@@ -105,6 +119,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
+    //Method by: Yashika Saini
+    // Purpose: Reads all workouts and their associated exercises from the local SQLite database
     func readWorkoutData() {
         workoutData.removeAll()
 

@@ -5,6 +5,7 @@
 //  Created by Priyanshu Kaushik on 2025-04-12.
 //
 
+//Description: A view controller for Displaying the ChatView.
 import UIKit
 
 class ChatViewController: UIViewController {
@@ -15,7 +16,7 @@ class ChatViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    //adding segue
+    //adding segue to unwind from the subpage to here.
     @IBAction func unwindToChatViewController(segue: UIStoryboardSegue) {
         
     }

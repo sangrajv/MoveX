@@ -7,6 +7,7 @@
 
 import Foundation
 
+//APIKey for Gemini
 enum APIKey{
     static let `default` = "AIzaSyD3XCNScXMHoaV5jISgtNe_XsO3pvzqGrA"
 }
