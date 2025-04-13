@@ -6,7 +6,7 @@
 //
 // Description:
 // This class serves as a data model representing a workout. It contains properties like
-// the workout's ID, title, image name, time duration, and a list of included exercises.
+// the workout's ID, title, image name, estimated time for workout, and a list of included exercises.
 // This model is used throughout the app to populate UI components and transfer workout data.
 
 import UIKit
