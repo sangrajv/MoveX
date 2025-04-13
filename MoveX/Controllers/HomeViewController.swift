@@ -10,7 +10,13 @@ import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    
+    //adding segue
+    @IBAction func unwindToHOME(segue: UIStoryboardSegue) {
+        
+    }
+    
     
     @IBAction func logOutButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Log Out",
@@ -46,7 +52,33 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func goToChatPressed(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 1
+    }
+    
+    @IBAction func workoutButtonTapped(_ sender: UIButton) {
+            let index = sender.tag
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let selectedWorkout = appDelegate.workoutData[index]
+
+            if let popoverVC = storyboard?.instantiateViewController(withIdentifier: "WorkoutPopoverViewController") as? WorkoutPopoverViewController {
+                popoverVC.modalPresentationStyle = .popover
+                popoverVC.preferredContentSize = CGSize(width: 300, height: 400)
+                popoverVC.workoutData = selectedWorkout
+                if let popover = popoverVC.popoverPresentationController {
+                    popover.sourceView = sender
+                    popover.sourceRect = sender.bounds
+                    popover.permittedArrowDirections = .up
+                    popover.delegate = self
+                }
+                present(popoverVC, animated: true, completion: nil)
+            }
+        }
+    
+    
 }
+
 
 
     /*

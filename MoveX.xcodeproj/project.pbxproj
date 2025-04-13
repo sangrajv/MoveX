@@ -12,6 +12,7 @@
 		481B49022D903E40006A5C01 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 481B49012D903E40006A5C01 /* FirebaseAuth */; };
 		481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 481B49032D903EBB006A5C01 /* FirebaseCore */; };
 		48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 48E324722D92BDF9002D4C39 /* FirebaseFirestore */; };
+		8516570F2DAB0A6200E69A17 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 8516570E2DAB0A6200E69A17 /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 				481B49022D903E40006A5C01 /* FirebaseAuth in Frameworks */,
 				481B48C02D90385E006A5C01 /* GoogleSignInSwift in Frameworks */,
 				481B49042D903EBB006A5C01 /* FirebaseCore in Frameworks */,
+				8516570F2DAB0A6200E69A17 /* GoogleGenerativeAI in Frameworks */,
 				48E324732D92BDF9002D4C39 /* FirebaseFirestore in Frameworks */,
 				481B48BE2D90385E006A5C01 /* GoogleSignIn in Frameworks */,
 			);
@@ -143,6 +145,7 @@
 			packageReferences = (
 				481B48BC2D90385E006A5C01 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				481B49002D903CC7006A5C01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8516570D2DAB0A6200E69A17 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 481E869D2D8B186A00E03036 /* Products */;
@@ -182,6 +185,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF68ZR3266;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -209,6 +213,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF68ZR3266;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -388,6 +393,14 @@
 				minimumVersion = 11.10.0;
 			};
 		};
+		8516570D2DAB0A6200E69A17 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -415,6 +428,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 481B49002D903CC7006A5C01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		8516570E2DAB0A6200E69A17 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8516570D2DAB0A6200E69A17 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
