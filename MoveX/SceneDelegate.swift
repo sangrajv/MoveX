@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MoveX
 //
-//  Created by Rajvir Sangha on 2025-03-19.
+//  Created by Rajvir Singh Sangha on 2025-03-19.
 //
 
 import UIKit

@@ -2,8 +2,15 @@
 //  LoginViewController.swift
 //  MoveX
 //
-//  Created by Rajvir Sangha on 2025-03-19.
-//
+//  Created by Rajvir Singh Sangha on 2025-03-19.
+/*
+ This vc has two main features I implemented, first is the login using email and pw, users can log in using their email and password that they registered with. Once the login button is clicked, again FirebaseAuth is used to authenticate the user.
+
+ I have again also added error handling here. So if the user enters incorrect credentials, an alert is shown with the error message returned by Firebase.
+
+ Second main functionality here is that I have also included the Google Sign-In. If the user prefers to sign in with their Google account, they can tap on the Google Sign-In button. The app will authenticate the user using Google and Firebase, and then take the user to the home page if successful.
+ 
+ */
 
 import UIKit
 import FirebaseCore
@@ -14,12 +21,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-   // @IBOutlet weak var signInButton: GIDSignInButton!
-    
+   
+    // This method is for logging in the users
     @IBAction func loginButton(_ sender: UIButton) {
         
+        
+        // Checking if both email and password fields have values
         if let email = emailTextField.text, let password = passwordTextField.text {
+            
+            // Using FirebaseAuth to sign in the user with email and password
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                
+                // If there's an error from Firebase, show the alert with the error message
                 if let e = error {
                     print(e.localizedDescription)
                     let alert = UIAlertController(title: "Registration Failed", message: e.localizedDescription, preferredStyle: .alert)
@@ -27,6 +40,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.present(alert, animated: true)
                 }
                 
+                // If login is successful, navigate the user to the home screen
                 else{
                     self.performSegue(withIdentifier: "LoginToHome", sender: self)
                 }
@@ -37,23 +51,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    // This method is for Google Sign-In button
     @IBAction func googleSignInButtonTapped(_ sender: UIButton) {
+        
+            
+        // Getting the client ID from Firebase configuration
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
             let config = GIDConfiguration(clientID: clientID)
             GIDSignIn.sharedInstance.configuration = config
             
-           // guard let presentingVC = self.view.window?.rootViewController else { return }
            let presentingVC = self
             
+        
+        // Initiating the Google sign-in process
             GIDSignIn.sharedInstance.signIn(withPresenting: presentingVC) { result, error in
                 if let error = error {
                     print("Google Sign-In failed: \(error.localizedDescription)")
                     return
                 }
                 
+                // Getting the Google user and the required tokens
                 guard let user = result?.user, let idToken = user.idToken?.tokenString else { return }
+                
+                // Creating a Firebase console credential using the Google tokens
                 let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
                 
+                //Signing in the user to Firebase with Google credential
                 Auth.auth().signIn(with: credential) { authResult, error in
                     if let error = error {
                         print("Firebase Sign-In failed: \(error.localizedDescription)")
@@ -64,6 +88,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    
+    
+    // This method allows the keyboard to hide when the return key is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             return textField.resignFirstResponder()
         }
@@ -71,6 +98,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    // unwind to login vc
     @IBAction func unwidToLoginVC(sender: UIStoryboardSegue)
     {
         

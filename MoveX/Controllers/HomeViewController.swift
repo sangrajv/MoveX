@@ -2,8 +2,10 @@
 //  HomeViewController.swift
 //  MoveX
 //
-//  Created by Rajvir Sangha on 2025-03-20.
-//
+//  Created by Rajvir Singh Sangha on 2025-03-20.
+/*
+ Once the user is logged in, they come to this page. Since I (Rajvir) implemented the firebase auth in this project, I only implemented the log out button in this vc.
+ */
 
 import UIKit
 import FirebaseAuth
@@ -17,11 +19,15 @@ class HomeViewController: UIViewController, UIPopoverPresentationControllerDeleg
         
     }
     
-    
+    //For the logout button tapped
     @IBAction func logOutButton(_ sender: UIBarButtonItem) {
+        
+        // Display an alert asking the user to confirm logout
         let alert = UIAlertController(title: "Log Out",
                                       message: "Are you sure you want to log out?",
                                       preferredStyle: .alert)
+        
+        // If user confirms, call the performLogout() function
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
             self.performLogout()
         }))
@@ -31,20 +37,28 @@ class HomeViewController: UIViewController, UIPopoverPresentationControllerDeleg
         present(alert, animated: true, completion: nil)
     }
     
+    
+    //This function performs the logout process for both Firebase and Google
     func performLogout() {
         let firebaseAuth = Auth.auth()
         
         do {
+            // Sign out from Firebase
             try firebaseAuth.signOut()
             print("Firebase sign-out successful.")
             
+            // If signed in with Google, sign out from Google as well
             if GIDSignIn.sharedInstance.currentUser != nil {
                 GIDSignIn.sharedInstance.signOut()
                 print("Google sign-out successful.")
             }
             
+            // Navigate back to the welcome screen after logout
             self.performSegue(withIdentifier: "HomeToWelcome", sender: self)
         } catch let signOutError as NSError {
+            
+            
+            // Print any error that occurs during sign out
             print("Error signing out: %@", signOutError)
         }
     }

@@ -2,8 +2,12 @@
 //  WelcomeViewController.swift
 //  MoveX
 //
-//  Created by Rajvir Sangha on 2025-03-19.
-//
+//  Created by Rajvir Singh Sangha on 2025-03-19.
+
+/*  Description of code:
+    This is the welcome page which contains three buttons, register, login and report a issue.
+ */
+
 
 import UIKit
 
@@ -11,6 +15,7 @@ class WelcomeViewController: UIViewController {
     
     
     
+    //to unwind to the welcome page
     @IBAction func unwidToWelcomeVC(sender: UIStoryboardSegue)
     {
         
